@@ -2,7 +2,7 @@ package com.example.backend.model;
 
 import jakarta.persistence.*;
 import lombok.*;
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "tasks")
@@ -20,14 +20,9 @@ public class Task {
     private String title;
 
     private String description;
-
     private String priority; // LOW, MEDIUM, HIGH
-
     private String status;   // PENDING, IN_PROGRESS, COMPLETED
 
-    @ManyToOne
-    @JoinColumn(name = "category_id")
-    private Category category;
-
-    private LocalDateTime createdAt = LocalDateTime.now();
+    private String assignedTo;
+    private LocalDate dueDate;
 }
